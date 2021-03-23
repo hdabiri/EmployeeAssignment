@@ -50,6 +50,16 @@ public class Employee {
 		return "Employee with ID number: " + employeeId +", named "+ 
 				this.getFullName() + ", in the role of " + role;
 	}
+	
+	//To Hire an employee
+	
+	public static Employee hireEmployee(int employeeId, String employeeLastName, String employeeFirstName, 
+			double salary, String workHours, boolean isFullTime, boolean isActive, Role role, Gender gender) {
+		
+		Employee e01 = new Employee(employeeId, employeeLastName, employeeFirstName, 
+				salary, workHours, isFullTime, isActive, role, gender);
+		return e01;
+	}
 
 	//To Fire an employee
 	void fireEmployee() {
@@ -93,7 +103,7 @@ public class Employee {
 		return this.salary; 
 	}
 	
-	//To get the gender of the employee. I don't know what for?? :!
+	//To get the gender of the employee.
 	public Gender getGender() {
 		return this.gender;
 	}

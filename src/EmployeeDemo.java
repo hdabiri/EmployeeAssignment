@@ -15,10 +15,8 @@ public class EmployeeDemo {
 //		===========================================================		
 		
 		//Hiring an Employee and entering them into the system.
-			Employee e15 = new Employee(1551, "Muhammad", "Amina", 250000.00, 
-					"6-12",true, true, Role.PRESIDENT, Gender.FEMALE);
-			
-			System.out.println(e15);
+			System.out.println(Employee.hireEmployee(1551, "James", "Amina", 250000.00, 
+					"6-12",true, true, Role.PRESIDENT, Gender.FEMALE));
 		
 		//employee to be fired. Just for identification purposes.
 			Employee e3 = new Employee(2034, "Alimi", "Adebayo", 60000.00, 
@@ -52,7 +50,14 @@ public class EmployeeDemo {
 	   //Printing Employee Salary
 			System.out.println(e5 + " gets paid $" +e5.getSalary() + " per annum.");
 			System.out.println("========================================");
-			System.out.println("Assignment is complete");
+			
+			
+	  //Reporting on different information
+			
+			//What is the Gender of the employee
+			System.out.println(e4 + " is " + e4.getGender() + ".");
+			System.out.println("========================================");
+			
 	}
 
 }

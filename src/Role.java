@@ -12,5 +12,11 @@ public enum Role {
 	public int getValue() {
 		return this.value;
 	}
-
+	
+	//This is to increase the role for the promotion of an Employee.
+	private static Role[] vals = values();
+    public Role next(){
+        return vals[(this.ordinal()+1) % vals.length];
+    }
+    
 }

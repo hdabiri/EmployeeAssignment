@@ -55,7 +55,8 @@ public class UserInterface {
 					salary, workHours, isFullTime, isActive, role, gender);
 			System.out.println("You have successfully hired " + e100 + " with a salary of $" + salary
 					+ ", and will work from " + workHours +".");
-		} else {
+		
+		} else if(feedback.equals("no")) {
 			
 			System.out.println("Do you want to promote an employee? 'yes' or 'no'");
 			String promoteInput = keyboard.next();
@@ -117,74 +118,71 @@ public class UserInterface {
 					}
 				
 				
-				}
+				} else if(promoteInput.equals("no")) {
+					System.out.println("Do you want to fire an employee? Enter 'yes' or 'no'.");
+					String fireInput = keyboard.next();
 					
-		} else {
-				System.out.println("Do you want to fire an employee? Enter 'yes' or 'no'.");
-				String fireInput = keyboard.next();
-				
-				if (fireInput.equals("yes")) {
-					System.out.println("Enter the employee's ID: (All employees have an ID between 1 - 100)");
-					int promoteUp = keyboard.nextInt();
-					
-					if (promoteUp != 0 ) {
+					if (fireInput.equals("yes")) {
+						System.out.println("Enter the employee's ID: (All employees have an ID between 1 - 100)");
+						int fireDown = keyboard.nextInt();
 						
-						BufferedReader reader = new BufferedReader(new FileReader("EmployeeData.csv"));
-						
-						// read file line by line
-						String line = null;
-						Scanner scanner = null;
-						int count = 0;
-
-						while ((line = reader.readLine()) != null) {
-
-							scanner = new Scanner(line);
+						if (fireDown != 0 ) {
 							
-								String[] employeeID = line.split(",");
-								if (promoteUp == Integer.parseInt(employeeID[0])) {
-									count++;
-									
-									Role role = Role.ENGINEER;
-									
-									if (employeeID[7].equals("engineer")) {
-										role = Role.ENGINEER;
-									} else if (employeeID[7].equals("tester")) {
-										role = Role.TESTER;
-									} else if (employeeID[7].equals("president")) {
-										role = Role.PRESIDENT;
-									} else if (employeeID[7].equals("lead")) {
-										role = Role.LEAD;
-									}
-									
-									Gender gender = Gender.Female;
-									if (employeeID[8].equals("male")) {
-										gender = Gender.Male;
-									}else if (employeeID[8].equals("female")) {
-										gender = Gender.Female;
-									}
-									Employee e500 = new Employee(Integer.parseInt(employeeID[0]),employeeID[1],
-											employeeID[2],Double.parseDouble(employeeID[3]),employeeID[4],
-											Boolean.parseBoolean(employeeID[5]), Boolean.parseBoolean(employeeID[6]),
-											role,gender);
-									
-									System.out.println(e500 + " has been promoted to " + e500.promoteEmployee());
-									break;
-								}
-							}
-						if (count==0) {
-							System.out.println("This ID is not assigned to an employee.");
-							System.out.println("========================================");	
-						}
-							scanner.close();
-							reader.close();
-			
-					}
+							BufferedReader reader = new BufferedReader(new FileReader("EmployeeData.csv"));
+							
+							// read file line by line
+							String line = null;
+							Scanner scanner = null;
+							int count = 0;
 		
-				}
+							while ((line = reader.readLine()) != null) {
+		
+								scanner = new Scanner(line);
+								
+									String[] employeeID = line.split(",");
+									if (fireDown == Integer.parseInt(employeeID[0])) {
+										count++;
+										
+										Role role = Role.ENGINEER;
+										
+										if (employeeID[7].equals("engineer")) {
+											role = Role.ENGINEER;
+										} else if (employeeID[7].equals("tester")) {
+											role = Role.TESTER;
+										} else if (employeeID[7].equals("president")) {
+											role = Role.PRESIDENT;
+										} else if (employeeID[7].equals("lead")) {
+											role = Role.LEAD;
+										}
+										
+										Gender gender = Gender.Female;
+										if (employeeID[8].equals("male")) {
+											gender = Gender.Male;
+										}else if (employeeID[8].equals("female")) {
+											gender = Gender.Female;
+										}
+										Employee e500 = new Employee(Integer.parseInt(employeeID[0]),employeeID[1],
+												employeeID[2],Double.parseDouble(employeeID[3]),employeeID[4],
+												Boolean.parseBoolean(employeeID[5]), Boolean.parseBoolean(employeeID[6]),
+												role,gender);
+										e500.fireEmployee();
+										System.out.println(e500 + " has been terminated");
+										break;
+									}
+								}
+							if (count==0) {
+								System.out.println("This ID is not assigned to an employee.");
+								System.out.println("========================================");	
+							}
+								scanner.close();
+								reader.close();
+						}
+					}
 			keyboard.close();
-
 		}
+		
 	}
 
+}
 }
 

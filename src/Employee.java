@@ -38,10 +38,37 @@ public class Employee {
 		
 	}
 	
+	public Employee(
+			int employeeId, String employeeLastName, 
+			String employeeFirstName, double salary,
+			String workHours, boolean isFullTime, 
+			boolean isActive) {
+		
+		this.employeeId = employeeId;
+		this.employeeLastName = employeeLastName;
+		this.employeeFirstName = employeeFirstName;
+		this.salary = salary;
+		this.workHours = workHours;
+		this.isFullTime = isFullTime;
+		this.isActive = isActive;
+		
+		
+	}
+	
 	//Getting the first and last name of the employee
 	String getFullName() {
 		return this.employeeFirstName + " " + this.employeeLastName;
 				
+	}
+	
+	
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	//Printing the employee information

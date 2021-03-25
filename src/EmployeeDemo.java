@@ -16,11 +16,11 @@ public class EmployeeDemo {
 		
 		//Hiring an Employee and entering them into the system.
 			System.out.println(Employee.hireEmployee(1551, "James", "Amina", 250000.00, 
-					"6-12",true, true, Role.PRESIDENT, Gender.FEMALE));
+					"6-12",true, true, Role.PRESIDENT, Gender.Female));
 		
 		//employee to be fired. Just for identification purposes.
 			Employee e3 = new Employee(2034, "Alimi", "Adebayo", 60000.00, 
-					"7-3", true, true, Role.TESTER, Gender.MALE );
+					"7-3", true, true, Role.TESTER, Gender.Male );
 			
 			System.out.println(e3);
 			System.out.println("========================================");
@@ -35,14 +35,14 @@ public class EmployeeDemo {
 			
        //Setting The Work Hours
 			Employee e4 = new Employee(4001, "Mahmoud", "Yinka", 50000.00, 
-					"12-12", true, true, Role.ENGINEER, Gender.FEMALE);
+					"12-12", true, true, Role.ENGINEER, Gender.Female);
 			e4.setWorkHours("9-5");
 			System.out.println(e4+ ", works from " + e4.getWorkHours() +".");
 			System.out.println("========================================");
 			
 	   //Promoting The Employee
 			Employee e5 = new Employee(5004, "Stevens", "James", 45000.00, 
-					"9-3", true, true, Role.ENGINEER, Gender.MALE);
+					"9-3", true, true, Role.ENGINEER, Gender.Male);
 			System.out.println(e5 + " has been promoted to " + e5.promoteEmployee());
 			System.out.println("========================================");
 	  

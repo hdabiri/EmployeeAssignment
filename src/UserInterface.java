@@ -82,28 +82,10 @@ public class UserInterface {
 							if (promoteUp == Integer.parseInt(employeeID[0])) {
 								count++;
 								
-								Role role = Role.ENGINEER;
-								
-								if (employeeID[7].equals("engineer")) {
-									role = Role.ENGINEER;
-								} else if (employeeID[7].equals("tester")) {
-									role = Role.TESTER;
-								} else if (employeeID[7].equals("president")) {
-									role = Role.PRESIDENT;
-								} else if (employeeID[7].equals("lead")) {
-									role = Role.LEAD;
-								}
-								
-								Gender gender = Gender.Female;
-								if (employeeID[8].equals("male")) {
-									gender = Gender.Male;
-								}else if (employeeID[8].equals("female")) {
-									gender = Gender.Female;
-								}
 								Employee e500 = new Employee(Integer.parseInt(employeeID[0]),employeeID[1],
 										employeeID[2],Double.parseDouble(employeeID[3]),employeeID[4],
 										Boolean.parseBoolean(employeeID[5]), Boolean.parseBoolean(employeeID[6]),
-										role,gender);
+										Role.valueOf(employeeID[7]),Gender.valueOf(employeeID[8]));
 								
 								System.out.println(e500 + " has been promoted to " + e500.promoteEmployee());
 								break;
@@ -143,28 +125,10 @@ public class UserInterface {
 									if (fireDown == Integer.parseInt(employeeID[0])) {
 										count++;
 										
-										Role role = Role.ENGINEER;
-										
-										if (employeeID[7].equals("engineer")) {
-											role = Role.ENGINEER;
-										} else if (employeeID[7].equals("tester")) {
-											role = Role.TESTER;
-										} else if (employeeID[7].equals("president")) {
-											role = Role.PRESIDENT;
-										} else if (employeeID[7].equals("lead")) {
-											role = Role.LEAD;
-										}
-										
-										Gender gender = Gender.Female;
-										if (employeeID[8].equals("male")) {
-											gender = Gender.Male;
-										}else if (employeeID[8].equals("female")) {
-											gender = Gender.Female;
-										}
 										Employee e500 = new Employee(Integer.parseInt(employeeID[0]),employeeID[1],
 												employeeID[2],Double.parseDouble(employeeID[3]),employeeID[4],
 												Boolean.parseBoolean(employeeID[5]), Boolean.parseBoolean(employeeID[6]),
-												role,gender);
+												Role.valueOf(employeeID[7]),Gender.valueOf(employeeID[8]));
 										e500.fireEmployee();
 										System.out.println(e500 + " has been terminated");
 										break;
